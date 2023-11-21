@@ -187,7 +187,7 @@ summary(bankrup_train)
 
 We have a nice split in terms of the number of observations for each class of Y. Next, we estimate a logistic regression model using the `glm()` (generalised linear model) function which we save as an object. 
 
-```{r, warning = FALSE, echo =TRUE}
+```{r, warning = FALSE, echo=TRUE}
 model <- glm(Y ~ X1 + X2 + X3, data = bankrup_train, family = binomial(logit))
 model
 ```
@@ -218,7 +218,7 @@ We realise that the output above has a resemblance to the standard regression ou
 The fitted logarithm of the odds ratio, i.e. logit of the probability $p$ of the firm remaining solvent after two years is modelled as:
 
 $$\hat{g}(X_1, X_2, ...X_q) = -9.8846 +  0.3238X_1 + 0.1779X_2 + 4.9443X_3$$
-Remember that here instead of predicting $Y$ we obtain the model to predict $log{frac{p}{(1-p)}$. Using the transformation of the logit we get the predicted probabilities of the firm being solvent.
+Remember that here instead of predicting $Y$ we obtain the model to predict $\log\frac{p}{(1-p)}$. Using the transformation of the logit we get the predicted probabilities of the firm being solvent.
 
 The estimated parameters are expected changes in the logit for unit change in their corresponding variables when the other, remaining variables are held fixed. That is, the logistic regression coefficients give the change in the log odds of the response variable for a unit increase in the explanatory variable:
 
@@ -265,7 +265,7 @@ We can also consider: If its associated $p$-value is greater than $0.05$ we conc
 
 Next we calculate the $G$ statistic and the degrees of freedom of the corresponding critical value. Knowing what it is, we can calculated manually or obtain it using the `pscl::pR2()` function
 
-```{r, warning = FALSE, echo =TRUE}
+```{r, warning = FALSE, echo=TRUE}
 G_calc <- model$null.deviance - model$deviance
 Gdf <- model$df.null - model$df.residual
 pscl::pR2(model)
@@ -298,7 +298,7 @@ anova(model, test="Chisq")
 We can remove $X_3$ variable from the model
 
 ```{r, warning = FALSE, echo =TRUE}
-model_new <- update(model, ~. -X3, data = bankrup)
+model_new <- update(model, ~. -X3, data=bankrup_train)
 summary(model_new)
 anova(model_new, test="Chisq")
 ```
