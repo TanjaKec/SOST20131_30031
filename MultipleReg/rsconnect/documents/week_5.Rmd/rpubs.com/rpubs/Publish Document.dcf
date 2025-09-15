@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/960424/4fac1df73c6f459fa3fbb4f615cb231d
+bundleId: https://api.rpubs.com/api/v1/document/960424/4fac1df73c6f459fa3fbb4f615cb231d
+url: http://rpubs.com/TanjaKec/960424
+when: 1666814037.00296
+lastSyncTime: 1666814037.00297
